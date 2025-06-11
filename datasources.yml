@@ -1,0 +1,9 @@
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+#https://dev.to/jackynote/implementing-the-saga-pattern-with-spring-boot-and-activemq-in-microservice-14me
+#https://bootcamp.uxdesign.cc/saga-patterns-in-microservices-6d7aa38107f4
