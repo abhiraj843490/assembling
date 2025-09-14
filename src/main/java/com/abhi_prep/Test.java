@@ -72,15 +72,7 @@ class Emp {
     String ename;
     String edep;
     int esalary;
-    /*
-        select ename from Emp order by salary offset 1 limit 1;
 
-        select ename from Emp order by salary =
-        (select max(esalary) from Emp where esalary < (select Max(esalary)from Emp));
-
-        db.collection("Emp").aggregate([$sum:{esalary}]);
-
-     */
 
 
 }

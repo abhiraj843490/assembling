@@ -5,8 +5,12 @@ import java.util.TreeSet;
 
 public class ComparatorTest {
     public static void main(String [] args){
-        TreeSet set = new TreeSet(new CustomSorting());
-        set.add("abhiraj");set.add("raj");set.add("anu");set.add("swati");set.add("soni");
+        TreeSet<String> set = new TreeSet(new CustomSorting());
+        set.add("abhiraj");
+        set.add("raj");
+        set.add("anu");
+        set.add("swati");
+        set.add("soni");
         System.out.println(set);
     }
 }

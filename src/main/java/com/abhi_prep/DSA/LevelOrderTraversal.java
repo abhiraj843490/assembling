@@ -4,7 +4,7 @@ import java.util.*;
 
 class TreeNode {
     int val;
-    TreeNode left, right;
+    TreeNode1 left, right;
     TreeNode(int val) {
         this.val = val;
     }
@@ -12,8 +12,8 @@ class TreeNode {
 
 public class LevelOrderTraversal {
 
-    public static List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>();
+    public static List<List<Integer>> levelOrder(TreeNode1 root) {
+        Queue<TreeNode1> q = new LinkedList<>();
         List<List<Integer>> finalAns = new ArrayList<>();
 
         if (root == null) {
@@ -49,12 +49,12 @@ public class LevelOrderTraversal {
         //     / \   \
         //    4   5   6
 
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.right = new TreeNode(6);
+        TreeNode1 root = new TreeNode1(1);
+        root.left = new TreeNode1(2);
+        root.right = new TreeNode1(3);
+        root.left.left = new TreeNode1(4);
+        root.left.right = new TreeNode1(5);
+        root.right.right = new TreeNode1(6);
 
         List<List<Integer>> result = levelOrder(root);
 
