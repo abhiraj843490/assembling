@@ -15,6 +15,7 @@ public class TotalCostToHireKWorkers2462 {
         int n = costs.length-1;
         PriorityQueue<Integer> h1 = new PriorityQueue<>();
         PriorityQueue<Integer> h2 = new PriorityQueue<>();
+
         int i = 0;
         for (int x = 0; x < candidates && i <= n; x++) {
             h1.add(costs[i++]);
