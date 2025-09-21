@@ -43,27 +43,37 @@ public class GoodNodesBinaryTree {
     }
 
     public static void main(String[] args) {
-        /*
+        /*BT
               3
              / \
             1   4
              \  / \
               2 1   5
         */
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(1, null, new TreeNode(2));
-        root.right = new TreeNode(4, new TreeNode(1), new TreeNode(5));
+        /*BST
+              5
+             / \
+            3   8
+             \  / \
+              4 6   10
+                    / \
+                   9   12
+        */
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(3, null, new TreeNode(4));
+        root.right = new TreeNode(8, new TreeNode(6), new TreeNode(10, new TreeNode(9), new TreeNode(12)));
 
         GoodNodesBinaryTree sol = new GoodNodesBinaryTree();
-//        int result = sol.goodNodes(root);
+        int result = sol.goodNodes(root);
 
         //lowest common ancestor
         TreeNode p = root.right.left;
         TreeNode q = root.right.right;
         TreeNode res = sol.lca(root, p, q);
+        sol.deleteNode(root, 8);
         System.out.println(res.val);
 
-//        System.out.println("Number of good nodes: " + result); // Expected: 4
+        System.out.println("Number of good nodes: " + result); // Expected: 4
     }
 
     static TreeNode lca(TreeNode node, TreeNode p, TreeNode q) {
@@ -87,5 +97,43 @@ public class GoodNodesBinaryTree {
         // Otherwise return whichever side is non-null
         return left != null ? left : right;
     }
+
+    static TreeNode deleteNode(TreeNode root, int key) {
+        if (root == null){
+            return null;
+        }
+
+        if (key < root.val) {
+            root.left = deleteNode(root.left, key);
+        } else if (key > root.val) {
+            root.right = deleteNode(root.right, key);
+        } else {
+            // Case 1: No child
+            if (root.left == null && root.right == null) {
+                return null;
+            }
+            // Case 2: One child
+            else if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+            // Case 3: Two children
+            else {
+                TreeNode successor = findMin(root.right);
+                root.val = successor.val; // replace value
+                root.right = deleteNode(root.right, successor.val); // delete successor
+            }
+        }
+        return root;
+    }
+
+    static TreeNode findMin(TreeNode node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
 }
 
