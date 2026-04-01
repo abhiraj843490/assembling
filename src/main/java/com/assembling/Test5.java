@@ -14,8 +14,8 @@ target sum = 0
 Output: [[-1,-1,2],[-1,0,1]]
      */
 
-    public static void main(String[]args){
-        int nums[] = {-1,2,1, -4};
+    public static void main(String[] args) {
+        int nums[] = {-1, 2, 1, -4};
         int target = 2;
 //        List<List<Integer>>res = tripletSum(nums, target);
 
@@ -25,21 +25,22 @@ Output: [[-1,-1,2],[-1,0,1]]
 
         System.out.println(tripletSum(nums, target));
     }
-    static int tripletSum(int []nums, int tar){
+
+    static int tripletSum(int[] nums, int tar) {
         int n = nums.length;
         Arrays.sort(nums);
-        int closetSum = nums[0]+nums[1]+nums[2];
+        int closetSum = nums[0] + nums[1] + nums[2];
 
         List<List<Integer>> res = new ArrayList<>();
-        for(int i=0;i<n-2;i++){
-            int l = i+1, r = n-1;
-            while (l<r){
-                int sum = nums[i]+nums[l]+nums[r];
-                if(Math.abs(sum-tar)<Math.abs(closetSum-tar)){
-                    closetSum=sum;
+        for (int i = 0; i < n - 2; i++) {
+            int l = i + 1, r = n - 1;
+            while (l < r) {
+                int sum = nums[i] + nums[l] + nums[r];
+                if (Math.abs(sum - tar) < Math.abs(closetSum - tar)) {
+                    closetSum = sum;
                 }
-                if(sum<tar) l++;
-                else if(sum>tar) r--;
+                if (sum < tar) l++;
+                else if (sum > tar) r--;
                 else {
                     return sum;
                 }
